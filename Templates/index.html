@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Drowsiness Detection</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+      /* Set the background color and font family for the page */
+      body {
+        background-color: #121212;
+        color: #f5f5f5;
+        font-family: Arial, sans-serif;
+      }
+      
+      /* Style the header */
+      h1 {
+        color: #f5f5f5;
+        margin-top: 40px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      
+      /* Style the buttons */
+      button {
+        background-color: #3498db;
+        border: none;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        margin-right: 10px;
+        margin-top: 10px;
+        font-family: Arial, sans-serif;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+      }
+      
+      /* Change button styling on hover */
+      button:hover {
+        background-color: #0d0d0d;
+        color: #f5f5f5;
+      }
+      
+      /* Style the video capture area */
+      #bg {
+        display: none;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+      }
+      
+      /* Style the container */
+      .container {
+        max-width: 600px;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      /* Style the button container */
+      .button-container {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+      }
+      
+      /* Style the video container */
+      .video-container {
+        max-width: 600px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Drowsiness Detection...!!</h1>
+      <h2> Let's Wake up... </h2>
+      
+      <div class="button-container">
+        <button id="start-btn" onclick="startCapture()">Start Detection</button>
+        <button id="stop-btn" onclick="stopCapture()" style="display: none;">Stop Detection</button>
+      </div>
+
+      <div class="video-container" >
+        <!-- <img id="bg" src="{{ url_for('video_feed') }}">  -->
+        <img id="bg" src=""> 
+      </div>
+      
+    </div>
+
+<footer style=" position: fixed; bottom: 0; left: 0; width: 100%; background-color: #121212; color: #f5f5f5; padding: 10px; font-size: 14px; text-align: center;">
+  
+</footer>
+
+    <script>
+      var video = document.getElementById("bg");
+      var startButton = document.getElementById("start-btn");
+      var stopButton = document.getElementById("stop-btn");
+      var isStreaming = false;
+      
+      function startCapture() {
+        video.setAttribute("src", "{{ url_for('video_feed') }}")
+        video.style.display = "block";
+        startButton.style.display = "none";
+        stopButton.style.display = "block";
+        isStreaming = true;
+      }
+
+      function stopCapture() {
+        video.setAttribute("src", "")
+        video.style.display = "none";
+        startButton.style.display = "block";
+        stopButton.style.display = "none";
+        isStreaming = false;
+      }
+
+    </script>
+  </body>
+</html>
