@@ -70,4 +70,4 @@ Feel free to contribute to this project by submitting issues and/or pull request
 
 ## License
 
-This project is licensed under the [MIT License](https://github.com/dhruv1972/Driver_Drowsiness_Detection/LICENSE.md)
+This project is licensed under the [GNU General Public License](https://github.com/dhruv1972/Driver_Drowsiness_Detection/LICENSE.md)
